@@ -1,97 +1,113 @@
 📚 LiterAltura
+------------------------------------------------------------------------------------------------
 
-O LiterAltura é um projeto em Java que permite construir seu próprio catálogo de livros, explorando conceitos essenciais de programação, consumo de APIs, manipulação de dados JSON e persistência em banco de dados.
+Aplicação desenvolvida em Java para construir um catálogo de livros consumindo dados de uma   API pública.
+Os livros e autores podem ser consultados, filtrados e armazenados em banco de dados relacional, com interação via console.
 
-A aplicação roda via console e oferece ao usuário diferentes formas de interação com os livros e autores buscados a partir de uma API pública.
-
-🎯 Objetivo
-
-Desenvolver um catálogo de livros interativo que:
-
-Consuma dados de uma API de livros;
-
-Armazene informações em um banco de dados relacional;
-
-Permita ao usuário interagir via console com pelo menos 5 opções de navegação;
-
-Filtre e exiba os livros e autores de interesse.
-
-⚙️ Funcionalidades
-
-O usuário pode interagir com o sistema através de um menu no console, que oferece opções como:
-
-Buscar livros pela API
-
-Listar todos os livros salvos no banco de dados
-
-Listar autores cadastrados
-
-Filtrar livros por idioma
-
-Pesquisar livros ou autores específicos
-
-🛠️ Tecnologias Utilizadas
-
-Java 17+
-
-Spring Boot
-
-JPA/Hibernate
-
-Banco de Dados (PostgreSQL ou MySQL)
-
-API externa de livros (ex: Gutendex)
-
-Maven para gerenciamento de dependências
-
-🚀 Como Executar o Projeto
-Pré-requisitos
-
-Java 17+ instalado
-
-Maven configurado
-
-Banco de dados relacional (PostgreSQL) rodando
-
-IntelliJ IDEA
-
-Passos
-
-Clone este repositório:
-
-git clone https://github.com/seu-usuario/literalura.git
+🛠 Tecnologias
+-----------------------------------------------------------------------------------------------
+  . Java 17+
+  
+  . Spring Boot
+  
+  . Spring Data JPA
+   
+  . Banco relacional (PostgreSQL)
+  
+  . Maven
+  
+  . Hibernate
+  
+  . API pública Gutendex
 
 
-Acesse a pasta do projeto:
+🔑 Funcionalidades
+------------------------------------------------------------------------------------------------
+.Consumo da API de livros (JSON → objetos Java)
 
-cd literalura
+. Persistência em banco de dados
+
+. Menu interativo no console com 5+ opções:
+
+. Buscar livros pela API
+
+. Listar todos os livros salvos
+
+. Listar autores cadastrados
+
+. Filtrar livros por idioma
+
+. Pesquisar livros/autores específicos
 
 
-Configure o application.properties com as credenciais do seu banco.
+🗄 Estrutura do Banco de Dados
+------------------------------------------------------------------------------------------------
+- livros
 
-Compile e execute o projeto:
+  .id
+  
+  .titulo
+  
+  .autor_id
+  
+  .idioma
+  
+  .downloads
 
-mvn spring-boot:run
+- autores
+
+   .id
+  
+   .nome
+  
+   .ano_nascimento
+  
+   .ano_falecimento
 
 
-Interaja com o menu no console 🎉
+⚙️ Configuração
+------------------------------------------------------------------------------------------------
 
-📝 Backlog
+Clone o repositório:
 
- Configuração do ambiente Java
+    git clone https://github.com/seu-usuario/literalura.git
+    cd literalura
 
- Criação do projeto
 
- Consumo da API de livros
+Configure o banco de dados no application.properties:
 
- Análise da resposta JSON
+    spring.datasource.url=jdbc:postgresql://localhost:5432/literalura
+    spring.datasource.username=SEU_USUARIO
+    spring.datasource.password=SUA_SENHA
+    spring.jpa.hibernate.ddl-auto=update
 
- Persistência de dados no banco
 
- Criação do menu de interação via console
+Execute a aplicação:
 
- Melhorias futuras: interface gráfica, exportação de relatórios, integração com outras APIs
+    ./mvnw spring-boot:run
 
-🌟 Aprendizados
+📖 Uso
+------------------------------------------------------------------------------------------------
+  Ao iniciar, o sistema exibirá um menu no console para navegação entre as opções de catálogo.
+Exibir Menu:
+```
+***** LiterAlura *****
 
-Este projeto proporciona uma experiência prática e envolvente no desenvolvimento Java, abordando desde conceitos básicos até a integração com serviços externos e persistência de dados.
+Escolha a opção desejada:
+
+1 - Buscar livro pelo título
+2 - Listar livros registrados
+3 - Listar autores registrados
+4 - Listar autores vivos em um determinado ano
+5 - Listar livros em um determinado idioma
+6 - Exibir Top 10 livros mais baixados
+
+0 - Sair
+```
+
+🎯 Créditos
+------------------------------------------------------------------------------------------------
+   Projeto proposto como desafio educacional do programa Alura + Oracle Next Education (ONE).
+
+------------------------------------------------------------------------------------------------
+   Desenvolvido com ☕ por Renata Fombeli
